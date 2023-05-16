@@ -1,12 +1,7 @@
-#id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+#id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3statusi3
 set $mod Mod4
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-# move tiling windows via drag & drop by left-clicking into the title bar,
-# or left-clicking anywhere into the window while holding the floating modifier.
-tiling_drag modifier titlebar
-gaps inner 20px
 
 # start a terminal
 bindsym $mod+Return exec kitty
@@ -15,9 +10,9 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run
+#bindsym $mod+d exec --no-startup-id dmenu_run
 # A more modern dmenu replacement is rofi:
-# bindcode $mod+40 exec "rofi -modi drun,run -show drun"
+bindsym $mod+d exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
 # .desktop file. It is a wrapper around dmenu, so you need that installed.
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
@@ -142,16 +137,27 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+bindsym $mod+Escape exec i3lock -c 000000
 
 for_window [title="^zoom$"] floating enable 
 for_window [class="^.blueman-manager-wrapped$"] floating enable 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        status_command i3status
-}
 
-for_window [class="^.*"] border pixel 3
+# work
+assign [class="^Vmware-view$"] 2
+assign [class="^zoom$"] 2
+
+# chat stuff
+assign [class="^discord$"] 5
+assign [class="^Skype$"] 5
+
+# Gaming
+assign [class="^Steam$"] 4
+assign [class="^PrismLauncher$"] 6
+assign [class="^Minecraft*"] 6
+
+for_window [class="^.*"] border pixel 0
+border_radius 10
+gaps inner 10
 
 set $rosewater #f5e0dc
 set $flamingo  #f2cdcd
@@ -186,3 +192,10 @@ client.unfocused         $mauve    $base $text  $rosewater $mauve
 client.urgent            $peach    $base $peach $overlay0  $peach
 client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
 client.background        $base
+
+exec_always --no-startup-id picom
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec_always --no-startup-id feh --bg-center --image-bg "$surface1" ~/.config/wallpaper.png 
+exec_always blueman-applet
+exec_always lid_handler
+exec_always dunst

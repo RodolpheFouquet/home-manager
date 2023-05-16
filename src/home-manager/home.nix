@@ -31,6 +31,15 @@
     ".config/nvim".recursive = true;
     ".config/i3".source = dotfiles/i3;
     ".config/i3".recursive = true;
+    ".config/picom".source = dotfiles/picom;
+    ".config/picom".recursive = true;
+    ".config/zellij".source = dotfiles/zellij;
+    ".config/zellij".recursive = true;
+    ".config/polybar".source = dotfiles/polybar;
+    ".config/polybar".recursive = true;
+    ".config/dunst".source = dotfiles/dunst;
+    ".config/dunst".recursive = true;
+    ".config/wallpaper.png".source = dotfiles/wallpaper.png;
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
@@ -56,6 +65,21 @@
     theme = "Catppuccin-Mocha";
   };
 
+  programs.starship = {
+    enable = true;
+    # Configuration written to ~/.config/starship.toml
+    settings = {
+      # add_newline = false;
+
+      character = {
+        success_symbol = "[➜](bold green)";
+        error_symbol = "[➜](bold red)";
+      };
+
+      # package.disabled = true;
+    };
+  };
+
   # You can also manage environment variables but you will have to manually
   # source
   #
@@ -74,7 +98,7 @@
     VISUAL = "nvim"; 
   };
 
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  programs.fish.enable = true;
 }
