@@ -1,12 +1,1 @@
-local options = {
-  ensure_installed = { "lua" },
-
-  highlight = {
-    enable = true,
-    use_languagetree = true,
-  },
-
-  indent = { enable = true },
-}
-
-return options
+/nix/store/94fpn6imr2nx7z8jhq4ck4yigr5qwxm7-home-manager-files/.config/nvim/lua/plugins/configs/treesitter.lua

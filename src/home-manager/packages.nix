@@ -62,6 +62,10 @@ let
     lldb
     graphviz
     gh
+    maim
+    xdotool
+    google-chrome
+    gnome.simple-scan
     (pkgs.callPackage ./pkgs/lid_handler/default.nix { })
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono"]; })
   ];

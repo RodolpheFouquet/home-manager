@@ -51,7 +51,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
+bindsym $mod+q layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
@@ -111,6 +111,16 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+## Screenshots
+bindsym $mod+s exec --no-startup-id maim "/home/$USER/Pictures/$(date).png"
+bindsym $mod+Ctrl+s exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/$(date).png"
+bindsym $mod+Shift+s exec --no-startup-id maim --select "/home/$USER/Pictures/$(date).png"
+
+## Clipboard Screenshots
+# bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+# bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+# bindsym Ctrl+Shift+Print exec --no-startup-id maim --selecv
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -139,12 +149,12 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 bindsym $mod+Escape exec i3lock -c 000000
 
-for_window [title="^zoom$"] floating enable 
+for_window [title="^zoom$" class="[zoom]*"] floating enable
 for_window [class="^.blueman-manager-wrapped$"] floating enable 
 
 # work
 assign [class="^Vmware-view$"] 2
-assign [class="^zoom$"] 2
+# assign [class="^zoom$"] 2
 
 # chat stuff
 assign [class="^discord$"] 5
