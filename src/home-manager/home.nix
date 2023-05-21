@@ -90,6 +90,7 @@
 
       pkgs.vimExtraPlugins.rust-tools-nvim
       pkgs.vimExtraPlugins.Comment-nvim
+      pkgs.vimExtraPlugins.lualine-nvim
     ];
   };
 

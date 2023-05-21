@@ -1,5 +1,6 @@
 require('telescope').load_extension('media_files')
 require('Comment').setup()
+require('lualine').setup()
 
 -- Hint: use `:h <option>` to figure out the meaning if needed
 vim.opt.clipboard = 'unnamedplus'   -- use system clipboard 
