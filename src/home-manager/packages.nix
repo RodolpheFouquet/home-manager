@@ -17,6 +17,7 @@ let
     nodejs
     go
     ripgrep
+    fd
     bat
     autorandr
     cmake
@@ -66,6 +67,11 @@ let
     xdotool
     google-chrome
     gnome.simple-scan
+    chafa
+    imagemagick
+    poppler_utils
+    ffmpegthumbnailer
+    vscode-extensions.vadimcn.vscode-lldb
     (pkgs.callPackage ./pkgs/lid_handler/default.nix { })
     (pkgs.nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono"]; })
   ];

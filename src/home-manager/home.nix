@@ -27,8 +27,6 @@
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
-    ".config/nvim".source = dotfiles/nvim;
-    ".config/nvim".recursive = true;
     ".config/i3".source = dotfiles/i3;
     ".config/i3".recursive = true;
     ".config/picom".source = dotfiles/picom;
@@ -39,6 +37,8 @@
     ".config/polybar".recursive = true;
     ".config/dunst".source = dotfiles/dunst;
     ".config/dunst".recursive = true;
+    ".config/nvim".source = dotfiles/nvim;
+    ".config/nvim".recursive = true;
     ".config/wallpaper.png".source = dotfiles/wallpaper.png;
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
@@ -51,7 +51,46 @@
     viAlias = true;
     enable = true;
     vimAlias = true;
+    extraConfig = ''
+        :luafile ~/.config/nvim/lua/init.lua
+    '';
+    plugins = [
+      pkgs.vimExtraPlugins.catppuccin
+      pkgs.vimExtraPlugins.plenary-nvim
+      pkgs.vimExtraPlugins.popup-nvim
+      pkgs.vimExtraPlugins.telescope-nvim
+      pkgs.vimExtraPlugins.telescope-media-files-nvim
 
+      pkgs.vimExtraPlugins.nvim-treesitter
+      pkgs.vimExtraPlugins.nvim-treesitter-context
+      pkgs.vimExtraPlugins.nvim-treesitter-refactor
+      pkgs.vimExtraPlugins.nvim-treesitter-textobjects
+      pkgs.vimExtraPlugins.playground
+
+      pkgs.vimExtraPlugins.undotree
+
+      pkgs.vimExtraPlugins.which-key-nvim
+      pkgs.vimExtraPlugins.neodev-nvim
+      pkgs.vimExtraPlugins.trouble-nvim
+      pkgs.vimExtraPlugins.nvim-web-devicons
+
+      pkgs.vimExtraPlugins.nvim-lspconfig
+      pkgs.vimExtraPlugins.nvim-dap
+      pkgs.vimExtraPlugins.nvim-dap-ui
+      pkgs.vimExtraPlugins.nvim-cmp
+      pkgs.vimExtraPlugins.cmp-nvim-lsp
+      pkgs.vimExtraPlugins.cmp-buffer
+      pkgs.vimExtraPlugins.cmp-path
+      pkgs.vimExtraPlugins.cmp-cmdline
+      pkgs.vimExtraPlugins.cmp-nvim-lsp-document-symbol
+      pkgs.vimExtraPlugins.cmp-nvim-lsp-signature-help
+      pkgs.vimExtraPlugins.cmp-nvim-lua
+      pkgs.vimExtraPlugins.LuaSnip
+      pkgs.vimExtraPlugins.cmp-luasnip
+
+      pkgs.vimExtraPlugins.rust-tools-nvim
+      pkgs.vimExtraPlugins.Comment-nvim
+    ];
   };
 
   programs.git = {
