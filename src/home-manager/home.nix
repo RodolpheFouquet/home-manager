@@ -52,7 +52,7 @@
       pkgs.vimExtraPlugins.telescope-nvim
       pkgs.vimExtraPlugins.telescope-media-files-nvim
 
-      pkgs.vimExtraPlugins.nvim-treesitter
+      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
       pkgs.vimExtraPlugins.nvim-treesitter-context
       pkgs.vimExtraPlugins.nvim-treesitter-refactor
       pkgs.vimExtraPlugins.nvim-treesitter-textobjects
