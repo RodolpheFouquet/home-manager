@@ -206,6 +206,6 @@ client.background        $base
 exec_always --no-startup-id picom
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-center --image-bg "$surface1" ~/.config/wallpaper.png 
-exec_always blueman-applet
-exec_always lid_handler
+#exec_always blueman-applet
+#exec_always lid_handler
 exec_always dunst
